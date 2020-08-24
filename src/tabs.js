@@ -48,11 +48,13 @@ const tabs = [
   },
 ];
 
-export default () => {
+export default (props) => {
   const [selectedTabId, setSelectedTabId] = useState('cobalt');
 
   const onSelectedTabChanged = id => {
     setSelectedTabId(id);
+    if (props && props.onTabSelected)
+      props.onTabSelected(id);
   };
 
   const renderTabs = () => {

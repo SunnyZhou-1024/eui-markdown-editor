@@ -8,17 +8,6 @@ import {
   EuiButtonToggle,
 } from '@elastic/eui';
 
-const initialContent = `## Hello world!
-
-Basic "github flavored" markdown will work as you'd expect.
-
-The editor also ships with some built in plugins. For example it can handle checkboxes. Notice how they toggle state even in the preview mode.
-
-- [ ] Checkboxes
-- [x] Can be filled
-- [ ] Or empty
-`;
-
 const dropHandlers = [
   {
     supportedFiles: ['.jpg', '.jpeg'],
@@ -38,8 +27,8 @@ const dropHandlers = [
   },
 ];
 
-export default () => {
-  const [value, setValue] = useState(initialContent);
+export default (props) => {
+  const [value, setValue] = useState(props.content);
   const [messages, setMessages] = useState([]);
   const [ast, setAst] = useState(null);
   const [isAstShowing, setIsAstShowing] = useState(false);
@@ -51,7 +40,7 @@ export default () => {
     <>
       <EuiMarkdownEditor
         aria-label="EUI markdown editor demo"
-        value={value}
+        value={props.content}
         onChange={setValue}
         height={400}
         onParse={onParse}
