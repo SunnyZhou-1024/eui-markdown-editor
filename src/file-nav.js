@@ -1,92 +1,78 @@
-
 import React from 'react';
 
-import { EuiTreeView, EuiToken } from '@elastic/eui';
+import { EuiIcon, EuiTreeView, EuiToken } from '@elastic/eui';
 
 export default () => {
+  const showAlert = () => {
+    alert('You squashed a bug!');
+  };
+
   const items = [
     {
-      label: 'transporter',
-      id: 'transporter',
-      icon: <EuiToken size="xs" iconType="tokenObject" />,
+      label: 'src',
+      id: 'src',
+      icon: <EuiIcon type="folderClosed" />,
+      iconWhenExpanded: <EuiIcon type="folderOpen" />,
+      isExpanded: true,
       children: [
         {
-          label: 'service',
-          id: 'service',
-          icon: <EuiToken size="xs" iconType="tokenString" />,
+          label: 'index.md',
+          id: 'item_a',
+          icon: <EuiIcon type="document" />,
         },
         {
-          label: 'auth',
-          id: 'auth',
-          icon: <EuiToken size="xs" iconType="tokenObject" />,
+          label: 'level2 folder',
+          id: 'item_b',
+          icon: <EuiIcon type="folderOpen" />,
+          iconWhenExpanded: <EuiIcon type="folderOpen" />,
           children: [
             {
-              label: 'user',
-              id: 'user',
-              icon: <EuiToken size="xs" iconType="tokenVariable" />,
+              label: 'monosodium_glutammate.md',
+              id: 'item_cloud',
+              icon: <EuiIcon type="document" />,
             },
             {
-              label: 'pass',
-              id: 'pass',
-              icon: <EuiToken size="xs" iconType="tokenVariable" />,
+              label: "cobalt.md",
+              id: 'item_bug',
+              icon: <EuiIcon type="document" />,
+              callback: showAlert,
+            },
+          ],
+        },
+        {
+          label: 'xxxxx folder',
+          id: 'item_c',
+          icon: <EuiIcon type="folderOpen" />,
+          iconWhenExpanded: <EuiIcon type="folderOpen" />,
+          children: [
+            {
+              label: 'Another Cloud.md',
+              id: 'item_cloud2',
+              icon: <EuiIcon type="document" />,
+            },
+            {
+              label:
+                'elastic_link.md',
+              id: 'item_bug2',
+              icon: <EuiIcon type="document" />,
+              callback: showAlert,
             },
           ],
         },
       ],
     },
     {
-      label: 'getContact',
-      id: 'getContact',
-      icon: <EuiToken size="xs" iconType="tokenFunction" />,
-      children: [
-        {
-          label: 'render',
-          id: 'render',
-          icon: <EuiToken size="xs" iconType="tokenFunction" />,
-          children: [
-            {
-              label: 'title',
-              id: 'title',
-              icon: <EuiToken size="xs" iconType="tokenString" />,
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: 'postContact',
-      id: 'postContact',
-      icon: <EuiToken size="xs" iconType="tokenFunction" />,
-      children: [
-        {
-          label: 'errors',
-          id: 'errors',
-          icon: <EuiToken size="xs" iconType="tokenConstant" />,
-        },
-        {
-          label: 'A custom class is on this one',
-          id: 'cutomClass',
-          icon: <EuiToken size="xs" iconType="tokenObject" />,
-          className: 'euiTreeView__nodeInnerExample',
-        },
-      ],
-    },
-    {
-      label: 'smokeMonster',
-      id: 'smokeMonster',
-      icon: <EuiToken size="xs" iconType="tokenMethod" />,
+      label: 'othter',
+      id: 'src2',
+      icon: <EuiIcon type="folderClosed" />,
+      iconWhenExpanded: <EuiIcon type="folderOpen" />,
+      isExpanded: true,
     },
   ];
 
   return (
     <div style={{ width: '20rem' }}>
-      <EuiTreeView
-        items={items}
-        display="compressed"
-        expandByDefault
-        showExpansionArrows
-        aria-label="Document Outline"
-      />
+      <EuiTreeView items={items} aria-label="eui-markdown-editor" />
     </div>
   );
 };

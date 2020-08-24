@@ -8,9 +8,7 @@ import {
   EuiPageContentHeader,
   EuiPageContentHeaderSection,
   EuiPageHeader,
-  EuiPageHeaderSection,
   EuiPageSideBar,
-  EuiTitle,
 } from '@elastic/eui';
 
 import FileNav from './file-nav';
@@ -19,9 +17,9 @@ import Tabs from './tabs';
 
 export default () => (
   <EuiPage>
-    					<EuiPageSideBar>
-			<FileNav />
-		</EuiPageSideBar>
+    <EuiPageSideBar>
+      <FileNav />
+    </EuiPageSideBar>
     <EuiPageBody component="div">
 
       <EuiPageHeader>
@@ -31,13 +29,15 @@ export default () => (
 
         <EuiPageContentHeader>
           <EuiPageContentHeaderSection>
-			<Tabs />
+            <Tabs />
           </EuiPageContentHeaderSection>
           <EuiPageContentHeaderSection>
-            
+
           </EuiPageContentHeaderSection>
         </EuiPageContentHeader>
-        <EuiPageContentBody><MarkdownEditor /></EuiPageContentBody>
+        <EuiPageContentBody>
+          <MarkdownEditor />
+        </EuiPageContentBody>
       </EuiPageContent>
     </EuiPageBody>
   </EuiPage>
